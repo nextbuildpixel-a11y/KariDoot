@@ -162,8 +162,8 @@ function KariDootApp() {
               <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-2 text-xs font-bold text-charcoal">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span>ONDC Network Live (Beckn v1.2.0 Active)</span>
-                  <span className="text-charcoal-light hidden sm:inline">• 0% Aggregator Commission Mode</span>
+                  <span>{t('ondcLiveStatus')}</span>
+                  <span className="text-charcoal-light hidden sm:inline">• {t('zeroCommMode')}</span>
                 </div>
 
                 {/* Spoken Order Alert Test Button */}
@@ -189,7 +189,7 @@ function KariDootApp() {
                     sellerStep === 'scanner' ? 'bg-terracotta-500 text-white border-terracotta-600 shadow-xs' : 'bg-white border-stone-border hover:bg-linen-100'
                   }`}
                 >
-                  1. Photo Scanner
+                  {t('step1')}
                 </button>
                 <span className="text-stone-300">→</span>
 
@@ -200,7 +200,7 @@ function KariDootApp() {
                     sellerStep === 'studio' ? 'bg-terracotta-500 text-white border-terracotta-600 shadow-xs' : 'bg-white border-stone-border hover:bg-linen-100'
                   }`}
                 >
-                  2. AI Photo Studio
+                  {t('step2')}
                 </button>
                 <span className="text-stone-300">→</span>
 
@@ -211,7 +211,7 @@ function KariDootApp() {
                     sellerStep === 'cataloger' ? 'bg-terracotta-500 text-white border-terracotta-600 shadow-xs' : 'bg-white border-stone-border hover:bg-linen-100'
                   }`}
                 >
-                  3. Catalog AI
+                  {t('step3')}
                 </button>
                 <span className="text-stone-300">→</span>
 
@@ -222,7 +222,7 @@ function KariDootApp() {
                     sellerStep === 'pricing' ? 'bg-terracotta-500 text-white border-terracotta-600 shadow-xs' : 'bg-white border-stone-border hover:bg-linen-100'
                   }`}
                 >
-                  4. Fair Pricing
+                  {t('step4')}
                 </button>
                 <span className="text-stone-300">→</span>
 
@@ -233,7 +233,7 @@ function KariDootApp() {
                     sellerStep === 'export' ? 'bg-terracotta-500 text-white border-terracotta-600 shadow-xs' : 'bg-white border-stone-border hover:bg-linen-100'
                   }`}
                 >
-                  5. ONDC Export
+                  {t('step5')}
                 </button>
               </div>
             </div>

@@ -119,10 +119,10 @@ export default function FairPricing({ craftData, onPricingComplete, onBack }) {
           <span>Stage 4 of 5 · Fair-Wage Pricing Calibrator</span>
         </div>
         <h2 className="text-3xl sm:text-4xl font-serif font-black text-stone-900 tracking-tight">
-          Artisan Fair Cost & Profit Calibrator
+          {t('pricingTitle')}
         </h2>
         <p className="text-sm sm:text-base text-stone-600 mt-2 max-w-xl mx-auto font-medium">
-          Set your direct costs and desired margin. KariDoot eliminates aggregator commissions so 100% of profit stays in your hands.
+          {t('pricingSubtitle')}
         </p>
       </div>
 
@@ -146,7 +146,7 @@ export default function FairPricing({ craftData, onPricingComplete, onBack }) {
             {/* Input 1: Raw Materials */}
             <div className="space-y-1.5">
               <label className="text-xs font-extrabold uppercase tracking-wider text-stone-600 flex items-center gap-1.5">
-                <span>Raw Materials (₹)</span>
+                <span>{t('materialsCost')}</span>
               </label>
               <div className="relative rounded-xl shadow-xs">
                 <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-stone-400 font-bold text-base">
@@ -163,14 +163,14 @@ export default function FairPricing({ craftData, onPricingComplete, onBack }) {
                 />
               </div>
               <p className="text-[11px] text-stone-500 font-medium">
-                Cost of clay, yarn, natural dyes, wood, brass, or canvas.
+                {t('materialsHelp')}
               </p>
             </div>
 
             {/* Input 2: Crafting Labor & Time */}
             <div className="space-y-1.5">
               <label className="text-xs font-extrabold uppercase tracking-wider text-stone-600 flex items-center gap-1.5">
-                <span>Crafting Labor & Time (₹)</span>
+                <span>{t('laborCost')}</span>
               </label>
               <div className="relative rounded-xl shadow-xs">
                 <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-stone-400 font-bold text-base">
@@ -187,14 +187,14 @@ export default function FairPricing({ craftData, onPricingComplete, onBack }) {
                 />
               </div>
               <p className="text-[11px] text-stone-500 font-medium">
-                Fair living wage for your crafting hours and master technique.
+                {t('laborHelp')}
               </p>
             </div>
 
             {/* Input 3: Packaging & Logistics */}
             <div className="space-y-1.5">
               <label className="text-xs font-extrabold uppercase tracking-wider text-stone-600 flex items-center gap-1.5">
-                <span>Packaging & Logistics (₹)</span>
+                <span>{t('packagingCost')}</span>
               </label>
               <div className="relative rounded-xl shadow-xs">
                 <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-stone-400 font-bold text-base">
@@ -211,14 +211,14 @@ export default function FairPricing({ craftData, onPricingComplete, onBack }) {
                 />
               </div>
               <p className="text-[11px] text-stone-500 font-medium">
-                Eco-safe packaging box, cushioning wrap, and dispatch prep.
+                {t('packagingHelp')}
               </p>
             </div>
 
             {/* Dynamic Base Cost Banner */}
             <div className="p-3.5 rounded-xl bg-amber-50/70 border border-amber-200/80 flex items-center justify-between">
               <span className="text-xs font-bold text-amber-900">
-                Base Cost (Materials + Labor + Packaging):
+                {t('baseCostLabel')}
               </span>
               <span className="text-base font-extrabold text-amber-950 font-mono">
                 ₹{calculation.baseCost.toLocaleString('en-IN')}
@@ -231,7 +231,7 @@ export default function FairPricing({ craftData, onPricingComplete, onBack }) {
             <div className="flex items-center justify-between pb-2 border-b border-stone-100">
               <h3 className="font-bold text-stone-900 text-base sm:text-lg flex items-center gap-2">
                 <Percent className="w-5 h-5 text-emerald-600" />
-                <span>Artisan Profit Margin Selector</span>
+                <span>{t('marginSelect')}</span>
               </h3>
               <span className="text-xs font-bold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
                 100% Retained
@@ -239,7 +239,7 @@ export default function FairPricing({ craftData, onPricingComplete, onBack }) {
             </div>
             
             <p className="text-xs text-stone-600 font-medium">
-              Choose your craft pride profit margin. You keep 100% of this amount.
+              {t('marginHelp')}
             </p>
 
             {/* Percentage Pills */}
@@ -322,10 +322,10 @@ export default function FairPricing({ craftData, onPricingComplete, onBack }) {
           <div className="rounded-2xl p-6 bg-gradient-to-br from-stone-900 via-stone-850 to-stone-950 text-white shadow-xl border border-stone-800 space-y-4">
             <div className="flex items-center justify-between">
               <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400">
-                Fair ONDC Listing Price
+                {t('fairOndcPrice')}
               </span>
               <span className="px-2.5 py-0.5 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full text-[10px] font-bold">
-                0% Middleman Cut
+                {t('zeroMiddlemanCut')}
               </span>
             </div>
 
@@ -335,7 +335,7 @@ export default function FairPricing({ craftData, onPricingComplete, onBack }) {
 
             <div className="pt-3 border-t border-stone-800 space-y-1">
               <div className="flex items-center justify-between text-xs">
-                <span className="text-stone-400">Direct Artisan Net Take-Home:</span>
+                <span className="text-stone-400">{t('directNetTakehome')}</span>
                 <span className="font-bold text-amber-400 text-base font-mono">
                   ₹{calculation.ondcTakeHome.toLocaleString('en-IN')}
                 </span>
@@ -350,7 +350,7 @@ export default function FairPricing({ craftData, onPricingComplete, onBack }) {
           <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm space-y-4">
             <div>
               <h4 className="text-xs font-extrabold uppercase tracking-wider text-stone-500">
-                Marketplace Price Comparison
+                {t('marketCompareTitle')}
               </h4>
               <p className="text-xs text-stone-500 mt-0.5">
                 Commercial aggregators mark up crafts by ~1.9× for middleman commissions.
@@ -361,7 +361,7 @@ export default function FairPricing({ craftData, onPricingComplete, onBack }) {
               {/* Row 1: Commercial Retail / Middlemen */}
               <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 flex items-center justify-between">
                 <div>
-                  <p className="text-xs font-bold text-stone-800">Commercial Retail / Middlemen</p>
+                  <p className="text-xs font-bold text-stone-800">{t('retailPrice')}</p>
                   <p className="text-[11px] text-rose-600 font-medium">
                     Typical ~1.9× aggregator & boutique markup
                   </p>
@@ -379,7 +379,7 @@ export default function FairPricing({ craftData, onPricingComplete, onBack }) {
                 <div>
                   <div className="flex items-center gap-1.5">
                     <CheckCircle2 className="w-4 h-4 text-emerald-700" />
-                    <p className="text-xs font-black text-emerald-950">KariDoot Direct ONDC Price</p>
+                    <p className="text-xs font-black text-emerald-950">{t('karidootPrice')}</p>
                   </div>
                   <p className="text-[11px] text-emerald-800 font-medium">
                     100% profit retained (0% platform commission)
@@ -397,7 +397,7 @@ export default function FairPricing({ craftData, onPricingComplete, onBack }) {
               <div className="p-3 rounded-xl bg-amber-50 border border-amber-200/80 flex items-center justify-between text-xs">
                 <span className="font-bold text-amber-900 flex items-center gap-1.5">
                   <Sparkles className="w-4 h-4 text-amber-600" />
-                  <span>Buyer Savings:</span>
+                  <span>{t('buyerSavings')}:</span>
                 </span>
                 <span className="font-black text-amber-900 font-mono">
                   Save ₹{calculation.buyerSavings.toLocaleString('en-IN')} ({calculation.savingsPercent}%)
@@ -414,7 +414,7 @@ export default function FairPricing({ craftData, onPricingComplete, onBack }) {
               className="flex items-center space-x-2 px-4 py-3 rounded-xl border border-stone-300 text-stone-700 hover:bg-stone-50 text-sm font-medium transition-colors flex-1 justify-center"
             >
               <ArrowLeft className="w-4 h-4" />
-              <span>Back to Catalog</span>
+              <span>{t('backToCatalog')}</span>
             </button>
 
             <button
@@ -423,7 +423,7 @@ export default function FairPricing({ craftData, onPricingComplete, onBack }) {
               className="flex items-center space-x-2 bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white px-5 py-3 rounded-xl font-semibold text-sm shadow-md transition-all flex-2 justify-center"
               id="proceed-to-export-btn"
             >
-              <span>Next: ONDC Export</span>
+              <span>{t('proceedToExport')}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>

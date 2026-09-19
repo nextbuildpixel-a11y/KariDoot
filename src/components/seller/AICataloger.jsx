@@ -270,13 +270,13 @@ Return a strict JSON object with NO markdown ticks, NO backticks, ONLY raw valid
       <div className="text-center mb-6">
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/10 text-amber-700 text-xs font-bold uppercase tracking-wider mb-2 border border-amber-500/20">
           <Bot className="w-3.5 h-3.5 text-amber-600" />
-          <span>Stage 3 of 5 · Catalog AI Engine</span>
+          <span>{t('aiBadgeText')}</span>
         </div>
         <h2 className="text-3xl sm:text-4xl font-serif font-black text-stone-900 tracking-tight">
-          Artisan Voice Cataloger
+          {t('catalogingTitle')}
         </h2>
         <p className="text-sm sm:text-base text-stone-600 mt-2 max-w-xl mx-auto font-medium">
-          Speak in your regional language or enter notes. Catalog AI generates bilingual titles, heritage narratives, and verified GI tags for ONDC.
+          {t('catalogingSubtitle')}
         </p>
       </div>
 
@@ -288,7 +288,7 @@ Return a strict JSON object with NO markdown ticks, NO backticks, ONLY raw valid
           <div className="space-y-2 pb-4 border-b border-stone-800">
             <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-stone-400">
               <Globe className="w-4 h-4 text-amber-400" />
-              <span>OUTPUT LANGUAGE:</span>
+              <span>{t('outputLanguage')}</span>
             </div>
             <div className="flex flex-wrap gap-2">
               {LANGUAGES.map((lang) => (
@@ -343,7 +343,7 @@ Return a strict JSON object with NO markdown ticks, NO backticks, ONLY raw valid
 
             {/* Instruction text */}
             <p className="text-xs text-stone-400 font-medium">
-              {isRecording ? '🎙️ Listening... Speak naturally about your craft' : 'Tap mic to speak or type artisan notes below'}
+              {isRecording ? t('listening') : t('tapToSpeak')}
             </p>
           </div>
 
@@ -351,10 +351,10 @@ Return a strict JSON object with NO markdown ticks, NO backticks, ONLY raw valid
           <div className="bg-stone-950/70 rounded-2xl border border-stone-800 p-4 shadow-inner space-y-2">
             <div className="flex items-center justify-between text-[11px] font-mono tracking-wider">
               <span className="text-stone-400 font-bold">
-                ARTISAN NOTES / VOICE TRANSCRIPT (ANY CRAFT ITEM)
+                {t('voiceTranscript')}
               </span>
               <span className="text-amber-400/90 font-semibold">
-                {artisanNotes.length} characters
+                {artisanNotes.length} {t('charsCount')}
               </span>
             </div>
 
@@ -370,7 +370,7 @@ Return a strict JSON object with NO markdown ticks, NO backticks, ONLY raw valid
           {/* 4. Quick Artisan Sample Notes */}
           <div className="space-y-2">
             <div className="text-xs font-mono font-bold tracking-wider text-stone-400">
-              💡 QUICK ARTISAN SAMPLE NOTES:
+              {t('sampleNotes')}
             </div>
             <div className="flex flex-wrap gap-2.5">
               {SAMPLE_NOTES.map((sample, idx) => (
@@ -393,7 +393,7 @@ Return a strict JSON object with NO markdown ticks, NO backticks, ONLY raw valid
             disabled={!artisanNotes.trim()}
             className="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-stone-950 font-bold text-base shadow-lg shadow-amber-950/40 flex items-center justify-center space-x-2 transition-all disabled:opacity-40 disabled:cursor-not-allowed group cursor-pointer"
           >
-            <span>✨ Generate Dynamic Catalog</span>
+            <span>{t('generateCatalog')}</span>
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </button>
 
@@ -405,7 +405,7 @@ Return a strict JSON object with NO markdown ticks, NO backticks, ONLY raw valid
               className="text-xs text-stone-400 hover:text-stone-200 transition-colors inline-flex items-center gap-1"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              <span>Back to Photo Studio</span>
+              <span>{t('backToStudio')}</span>
             </button>
           </div>
         </div>
@@ -578,7 +578,7 @@ Return a strict JSON object with NO markdown ticks, NO backticks, ONLY raw valid
               className="flex items-center space-x-2 bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white px-6 py-3 rounded-xl font-semibold text-sm shadow-md transition-all w-full sm:w-auto justify-center"
               id="proceed-to-pricing-btn"
             >
-              <span>Next: Fair Pricing</span>
+              <span>{t('nextPricing')}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>

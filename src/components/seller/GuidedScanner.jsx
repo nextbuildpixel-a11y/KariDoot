@@ -45,7 +45,7 @@ const CRAFT_PRESETS = [
 ];
 
 export default function GuidedScanner({ activeProduct, onScanComplete }) {
-  const { speakText } = useLanguage();
+  const { t, speakText } = useLanguage();
 
   const [rawImage, setRawImage] = useState(activeProduct?.rawImage || activeProduct?.image || null);
   const [selectedPreset, setSelectedPreset] = useState(activeProduct?.presetData || null);
@@ -158,10 +158,10 @@ export default function GuidedScanner({ activeProduct, onScanComplete }) {
         {/* Title & Subtitle */}
         <div className="text-center mb-8">
           <h2 className="text-2xl sm:text-3xl font-black text-charcoal tracking-tight mb-2">
-            Upload Any Artisan Craft Photo
+            {t('uploadTitle')}
           </h2>
           <p className="text-sm text-charcoal-muted max-w-lg mx-auto font-medium leading-relaxed">
-            Take a raw mobile photo of your handicraft directly in your workshop. Clutter will be eliminated automatically with dual-mode studio processing.
+            {t('uploadSubtitle')}
           </p>
         </div>
 
@@ -195,7 +195,7 @@ export default function GuidedScanner({ activeProduct, onScanComplete }) {
               {/* Lighting Badge */}
               <div className="absolute top-4 left-4 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur text-charcoal border border-stone-border text-xs font-bold shadow-xs">
                 <SunMedium className="w-3.5 h-3.5 text-amber-500" />
-                <span>Lighting: Optimal (Natural Daylight)</span>
+                <span>{t('optimalLighting')}</span>
               </div>
             </div>
 
@@ -204,14 +204,14 @@ export default function GuidedScanner({ activeProduct, onScanComplete }) {
                 onClick={stopCamera}
                 className="btn-tactile bg-linen-200 hover:bg-linen-300 text-charcoal text-xs border border-stone-border"
               >
-                Cancel Camera
+                {t('cancelCamera')}
               </button>
               <button
                 onClick={captureCameraFrame}
                 className="btn-tactile bg-terracotta-500 hover:bg-terracotta-600 text-white text-sm shadow-md shadow-terracotta-500/20 px-6 font-bold"
               >
                 <Camera className="w-4 h-4" />
-                <span>Capture Frame</span>
+                <span>{t('captureFrame')}</span>
               </button>
             </div>
           </div>
@@ -228,7 +228,7 @@ export default function GuidedScanner({ activeProduct, onScanComplete }) {
               />
               <div className="absolute top-4 left-4 px-3.5 py-1.5 bg-white/95 backdrop-blur rounded-full text-xs font-bold text-forest-800 border border-stone-border shadow-xs flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-forest-600" />
-                <span>Raw Photo Ready</span>
+                <span>{t('rawPhotoReady')}</span>
               </div>
             </div>
 
@@ -249,7 +249,7 @@ export default function GuidedScanner({ activeProduct, onScanComplete }) {
                 id="retake-replace-btn"
               >
                 <RotateCcw className="w-3.5 h-3.5 text-terracotta-600" />
-                <span>Retake / Replace</span>
+                <span>{t('retakeReplace')}</span>
               </button>
             </div>
           </div>
@@ -266,7 +266,7 @@ export default function GuidedScanner({ activeProduct, onScanComplete }) {
               id="live-camera-action-btn"
             >
               <Camera className="w-5 h-5" />
-              <span>📷 Live Camera</span>
+              <span>📷 {t('liveCamera')}</span>
             </button>
 
             {/* Action 2: Browse File */}
@@ -276,7 +276,7 @@ export default function GuidedScanner({ activeProduct, onScanComplete }) {
               id="browse-file-action-btn"
             >
               <Upload className="w-5 h-5 text-charcoal-muted" />
-              <span>📁 Browse File</span>
+              <span>📁 {t('browseFile')}</span>
             </button>
 
             <input
@@ -293,7 +293,7 @@ export default function GuidedScanner({ activeProduct, onScanComplete }) {
         <div className="w-full flex items-center gap-4 mb-6">
           <div className="h-px bg-stone-border flex-1" />
           <span className="text-[11px] font-black uppercase tracking-wider text-charcoal-light whitespace-nowrap">
-            OR TRY INSTANTLY WITH SAMPLE ARTISAN PHOTOS:
+            {t('sampleHeader')}
           </span>
           <div className="h-px bg-stone-border flex-1" />
         </div>
@@ -302,6 +302,7 @@ export default function GuidedScanner({ activeProduct, onScanComplete }) {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-2xl mx-auto mb-6">
           {CRAFT_PRESETS.map((preset) => {
             const isSelected = selectedPreset?.id === preset.id;
+            const localizedLabel = preset.id === 'pen' ? t('samplePen') : preset.id === 'blanket' ? t('sampleBlanket') : t('samplePot');
             return (
               <button
                 key={preset.id}
@@ -319,7 +320,7 @@ export default function GuidedScanner({ activeProduct, onScanComplete }) {
                 />
                 <div className="min-w-0 flex-1">
                   <p className="font-extrabold text-xs text-charcoal truncate">
-                    {preset.chipLabel}
+                    {localizedLabel}
                   </p>
                   <p className="text-[10px] text-charcoal-light truncate mt-0.5">
                     {preset.region}
@@ -338,7 +339,7 @@ export default function GuidedScanner({ activeProduct, onScanComplete }) {
               className="btn-tactile-lg bg-terracotta-500 hover:bg-terracotta-600 text-white w-full shadow-lg shadow-terracotta-500/25 group text-lg font-black min-h-[56px]"
               id="proceed-to-studio-btn"
             >
-              <span>Next: AI Photo Studio →</span>
+              <span>{t('nextStudio')}</span>
               <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />
             </button>
           </div>

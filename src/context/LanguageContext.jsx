@@ -1,4 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { translations } from '../utils/translations';
+
+export { translations };
 
 export const LANGUAGES = [
   { code: 'en', name: 'English', nativeName: 'English', speechCode: 'en-IN' },
@@ -828,8 +831,18 @@ export function LanguageProvider({ children }) {
 
   // Translation helper
   const t = (key) => {
+    const centralDict = translations[currentLang] || translations.en;
+    if (centralDict && centralDict[key]) {
+      return centralDict[key];
+    }
     const langDict = TRANSLATIONS[currentLang] || TRANSLATIONS.en;
-    return langDict[key] || TRANSLATIONS.en[key] || key;
+    if (langDict && langDict[key]) {
+      return langDict[key];
+    }
+    if (translations.en && translations.en[key]) {
+      return translations.en[key];
+    }
+    return TRANSLATIONS.en[key] || key;
   };
 
   // Text to Speech helper with fallback
@@ -899,6 +912,7 @@ export function LanguageProvider({ children }) {
       isAudioMuted,
       setIsAudioMuted,
       toggleAudioMute,
+      translations,
       stageAudioScripts: STAGE_AUDIO_SCRIPTS
     }}>
       {children}

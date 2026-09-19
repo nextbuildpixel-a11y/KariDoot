@@ -138,7 +138,7 @@ export default function Navbar({
                 id="tour-trigger-btn"
               >
                 <Compass className="w-4 h-4 text-terracotta-500" />
-                <span>Tour</span>
+                <span>{t('tour')}</span>
               </button>
             )}
 
@@ -152,7 +152,7 @@ export default function Navbar({
               >
                 <Volume2 className="w-4 h-4 text-emerald-600 animate-pulse flex-shrink-0" />
                 <span className="flex items-center gap-1.5 whitespace-nowrap">
-                  <span>Voice Guide: ON</span>
+                  <span>{t('voiceGuideOn')}</span>
                   {/* Animated Sound Wave Bars */}
                   <span className="flex items-end gap-0.5 h-3.5 ml-0.5">
                     <span className="w-0.5 h-full bg-emerald-600 rounded-full animate-pulse" />
@@ -169,7 +169,7 @@ export default function Navbar({
                 id="voice-guide-toggle-btn"
               >
                 <VolumeX className="w-4 h-4 text-charcoal-light flex-shrink-0" />
-                <span>Voice Guide: OFF / Muted</span>
+                <span>{t('voiceGuideMuted')}</span>
               </button>
             )}
 

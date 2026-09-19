@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { removeBackground } from '@imgly/background-removal';
 import { Sparkles, Scissors, ArrowRight, ArrowLeft, Loader2, Image as ImageIcon } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 // Canvas Composite Generator for high-resolution 4:5 catalog export (100% Pure Built-in Code)
 async function exportCompositeImage(
@@ -125,6 +126,8 @@ async function exportCompositeImage(
 }
 
 export default function PhotoStudio({ craftData, onStudioComplete, onBack }) {
+  const { t } = useLanguage();
+
   // Use authentic artisan photo, avoiding any tool bench references
   const rawWorkshopImage =
     craftData?.rawImage ||
@@ -250,7 +253,7 @@ export default function PhotoStudio({ craftData, onStudioComplete, onBack }) {
               }`}
             >
               <Sparkles className="w-3.5 h-3.5 text-amber-600"/>
-              <span>Studio Travertine</span>
+              <span>{t('studioTravertine')}</span>
             </button>
             <button
               type="button"
@@ -260,7 +263,7 @@ export default function PhotoStudio({ craftData, onStudioComplete, onBack }) {
               }`}
             >
               <ImageIcon className="w-3.5 h-3.5 text-stone-600"/>
-              <span>Studio Cyclorama</span>
+              <span>{t('studioCyclorama')}</span>
             </button>
             <button
               type="button"
@@ -270,7 +273,7 @@ export default function PhotoStudio({ craftData, onStudioComplete, onBack }) {
               }`}
             >
               <Scissors className="w-3.5 h-3.5 text-stone-700"/>
-              <span>Pure Cutout</span>
+              <span>{t('studioCutout')}</span>
             </button>
           </div>
         </div>
@@ -279,7 +282,7 @@ export default function PhotoStudio({ craftData, onStudioComplete, onBack }) {
       {/* Pure Cutout Canvas Sub-Toggle */}
       {activeMode === 'cutout' && (
         <div className="flex items-center justify-center gap-2">
-          <span className="text-xs text-stone-500 font-semibold uppercase tracking-wider">Canvas:</span>
+          <span className="text-xs text-stone-500 font-semibold uppercase tracking-wider">{t('canvasLabel')}</span>
           <button
             type="button"
             onClick={() => setCutoutBg('white')}
@@ -321,7 +324,7 @@ export default function PhotoStudio({ craftData, onStudioComplete, onBack }) {
               className="absolute inset-0 w-full h-full object-contain p-4 pointer-events-none"
             />
             <div className="absolute top-4 left-4 bg-stone-900/80 backdrop-blur-xs text-white text-[11px] font-mono tracking-wider px-3 py-1.5 rounded-full border border-white/20 shadow-md z-10">
-              BEFORE: WORKSHOP
+              {t('beforeLabel')}
             </div>
           </div>
 
@@ -387,7 +390,7 @@ export default function PhotoStudio({ craftData, onStudioComplete, onBack }) {
             )}
 
             <div className="absolute top-4 right-4 bg-emerald-800/90 backdrop-blur-xs text-white text-[11px] font-mono tracking-wider px-3 py-1.5 rounded-full border border-white/20 shadow-md z-10">
-              AFTER: {activeMode === 'travertine' ? 'TRAVERTINE' : activeMode === 'cyclorama' ? 'CYCLORAMA' : 'CUTOUT'}
+              {t('afterLabel')}
             </div>
           </div>
 
@@ -404,9 +407,9 @@ export default function PhotoStudio({ craftData, onStudioComplete, onBack }) {
 
         {/* Comparison Slider Guide */}
         <div className="flex justify-between items-center text-xs font-mono text-stone-500 mt-3 max-w-[440px] mx-auto px-1">
-          <span>◀ SLIDE LEFT (REVEAL AFTER)</span>
-          <span>DRAG TO COMPARE</span>
-          <span>SLIDE RIGHT (BEFORE) ▶</span>
+          <span>{t('slideLeftHint')}</span>
+          <span className="font-bold text-stone-700">{t('slideHint')}</span>
+          <span>{t('slideRightHint')}</span>
         </div>
       </div>
 
@@ -418,7 +421,7 @@ export default function PhotoStudio({ craftData, onStudioComplete, onBack }) {
           className="flex items-center space-x-2 px-5 py-2.5 rounded-xl border border-stone-300 text-stone-700 hover:bg-stone-50 text-sm font-medium transition-colors"
         >
           <ArrowLeft className="w-4 h-4"/>
-          <span>Back to Scanner</span>
+          <span>{t('backToScanner')}</span>
         </button>
 
         <button
@@ -434,7 +437,7 @@ export default function PhotoStudio({ craftData, onStudioComplete, onBack }) {
             </>
           ) : (
             <>
-              <span>Next: AI Multimodal Cataloger</span>
+              <span>{t('nextCatalog')}</span>
               <ArrowRight className="w-4 h-4"/>
             </>
           )}

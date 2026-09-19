@@ -201,10 +201,10 @@ export default function ExportMatrix({ craftData, onExportDone, onBack }) {
           <span>Stage 5 of 5: Multi-Channel Distribution</span>
         </div>
         <h2 className="text-3xl sm:text-4xl font-black text-charcoal tracking-tight">
-          {t('exportHeadline')}
+          {t('exportTitle')}
         </h2>
         <p className="text-base text-charcoal-muted mt-2 max-w-xl mx-auto font-medium">
-          {t('exportSubheadline')}
+          {t('exportSubtitle')}
         </p>
       </div>
 
@@ -214,7 +214,7 @@ export default function ExportMatrix({ craftData, onExportDone, onBack }) {
         {/* 1. ONDC Beckn Protocol Card */}
         <div className="card-artisan p-6 flex flex-col justify-between border-2 border-forest-500 bg-forest-50/40 relative overflow-hidden">
           <div className="absolute top-0 right-0 bg-forest-500 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-bl-xl">
-            Protocol Live
+            {t('readyToBroadcast')}
           </div>
           <div>
             <div className="w-12 h-12 rounded-2xl bg-forest-500 text-white flex items-center justify-center mb-4 shadow-md shadow-forest-500/20">
@@ -331,7 +331,7 @@ export default function ExportMatrix({ craftData, onExportDone, onBack }) {
           className="btn-tactile bg-linen-200 hover:bg-linen-300 text-charcoal border border-stone-border"
         >
           <ArrowLeft className="w-5 h-5" />
-          <span>Back</span>
+          <span>{t('previous')}</span>
         </button>
 
         <button
@@ -339,7 +339,7 @@ export default function ExportMatrix({ craftData, onExportDone, onBack }) {
           className="btn-tactile-lg bg-terracotta-500 hover:bg-terracotta-600 text-white shadow-lg shadow-terracotta-500/25 group"
           id="finish-seller-flow-btn"
         >
-          <span>View in ONDC Marketplace</span>
+          <span>{t('buyerRole')} →</span>
           <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />
         </button>
       </div>
