@@ -15,9 +15,10 @@ import ExportMatrix from './components/seller/ExportMatrix';
 import OrderAlertSim from './components/seller/OrderAlertSim';
 
 // Buyer Components
-import Marketplace from './components/buyer/Marketplace';
+import BuyerMarketplace from './components/buyer/BuyerMarketplace';
 import ProductReviews from './components/buyer/ProductReviews';
 import OrderTracker from './components/buyer/OrderTracker';
+import KariBot from './components/chat/KariBot';
 
 import {
   Sparkles,
@@ -286,9 +287,9 @@ function KariDootApp() {
         {/* ================= BUYER ONDC MARKETPLACE FLOW ================= */}
         {role === 'buyer' && (
           <div>
-            {/* View A: Marketplace Feed */}
+            {/* View A: Main Catalog Discovery Feed */}
             {buyerStep === 'marketplace' && (
-              <Marketplace
+              <BuyerMarketplace
                 newlyAddedCraft={newlyAddedCraft}
                 onSelectProduct={handleSelectProduct}
                 onBuyProduct={handleBuyProduct}
@@ -436,6 +437,9 @@ function KariDootApp() {
 
       {/* 4. Floating Quick-Access Speaker Widget (Bottom-Left) */}
       <AudioGuide currentStage={role === 'seller' ? sellerStep : buyerStep} />
+
+      {/* 5. Floating KariDoot AI Chatbot (Bottom-Right) */}
+      <KariBot />
       </>
       )}
 
