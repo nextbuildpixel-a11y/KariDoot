@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #FAF7F2;
+    color: #1F2937;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Accessible high-contrast focus rings */
+  :focus-visible {
+    outline: 2px solid #C85A32;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Tactile touch targets for rural artisan accessibility (min 56px - 72px) */
+  .btn-tactile {
+    @apply min-h-[56px] px-6 py-3 rounded-2xl font-semibold text-lg flex items-center justify-center gap-3 transition-all duration-200 active:scale-95 select-none shadow-earthy;
+  }
+
+  .btn-tactile-lg {
+    @apply min-h-[64px] md:min-h-[72px] px-8 py-4 rounded-2xl font-bold text-xl flex items-center justify-center gap-3 transition-all duration-200 active:scale-95 select-none shadow-earthy-lg;
+  }
+
+  .card-artisan {
+    @apply bg-white rounded-3xl border border-stone-border shadow-earthy transition-shadow duration-300;
+  }
+
+  .card-artisan-hover {
+    @apply bg-white rounded-3xl border border-stone-border shadow-earthy hover:shadow-earthy-lg hover:border-terracotta-300 transition-all duration-300;
+  }
+
+  .pill-badge {
+    @apply inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase;
+  }
+}
+
+/* Custom earthy scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F3EDE2;
+}
+::-webkit-scrollbar-thumb {
+  background: #DE7C57;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C85A32;
+}
+
+/* Slider custom styling */
+input[type=range] {
+  accent-color: #C85A32;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
